@@ -1,0 +1,17 @@
+version: "1.0"
+services:
+  api:
+    build: /nodejs
+    container_name: test
+    ports:
+      - "4000:8080"
+    volumes:
+      - ./nodejs:/app
+      - /app/node_modules
+  react:
+    build: /react
+    container_name: reacttest
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
