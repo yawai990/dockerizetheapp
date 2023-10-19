@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply text-black;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+
+.page_next_btn > svg,
+.page_prev_btn > svg {
+  width: 70%;
+  height: 70%;
+}
+.page_prev_btn > svg {
+  transform: rotate(180deg);
+}

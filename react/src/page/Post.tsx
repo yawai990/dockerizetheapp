@@ -17,7 +17,7 @@ const Post = () => {
     {
       cacheTime: 2000,
       //enabled: false, // means the query will not run when component is mount
-      staleTime: 1000, //the query will refetch after 10 seconda when it mounts:
+      staleTime: 10000, //the query will refetch after 10 seconda when it mounts:
       // refetchOnMount: false,
       // refetchOnWindowFocus: "always",
       //refetchInterval: 5000, //every 5 second, the data will refetch //should be use only in real time app

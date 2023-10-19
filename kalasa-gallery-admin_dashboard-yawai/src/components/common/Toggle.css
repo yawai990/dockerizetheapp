@@ -1,0 +1,82 @@
+.toggle_container {
+  width: 90px;
+  height: auto;
+  min-height: 35px;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px !important;
+  text-transform: capitalize;
+  color: white;
+  padding: 0 5px;
+  text-align: center;
+}
+
+input.toggle {
+  visibility: hidden;
+}
+.slider {
+  width: 15px;
+  height: 100%;
+  background-color: #dfdfdf;
+  box-shadow: 0 0 15px rgba(32, 32, 32, 0.7);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s linear;
+  border-radius: 5px;
+}
+
+.toggle_text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 35px;
+  transition: all 0.75s linear;
+}
+.toggle_text::before {
+  content: attr(data-available);
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.toggle_text::after {
+  content: attr(data-soldout);
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.toggle:checked ~ .slider {
+  left: calc(100% - 15px);
+}
+.toggle:checked ~ .toggle_text::before {
+  opacity: 0;
+}
+.toggle:checked ~ .toggle_text::after {
+  opacity: 1;
+}
+
+.toggle_bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(48, 180, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.25s linear;
+  border-radius: 5px;
+}
+
+.toggle:checked ~ .toggle_bg {
+  background-color: rgb(212, 8, 8);
+}
