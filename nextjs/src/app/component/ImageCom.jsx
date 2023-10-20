@@ -4,7 +4,7 @@ import getBase64 from "../lib/getBase64";
 
 const ImageCom = async ({ img }) => {
   const base64 = await getBase64(
-    `https://images.unsplash.com/photo-1696789539435-3bb1254d9f08?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8`
+    "https://images.unsplash.com/photo-1498462335304-e7263fe3925a?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ymx1cnJ5fGVufDB8fDB8fHww"
   );
   return (
     <Image

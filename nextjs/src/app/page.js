@@ -1,13 +1,19 @@
-// "use client";
-import Image from "next/image";
 import ImageCom from "./component/ImageCom";
+import User from "./component/User";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
     <main>
+      <ToastContainer />
       <h5 className="mb-3 text-center uppercase text-lg font-semibold">
         Image Gallery With Blur Effect
       </h5>
+
+      <hr />
+      <User />
+      <hr />
 
       <section className="p-5 columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 justify-self-start gap-5">
         <ImageCom img={"img.jpg"} />
