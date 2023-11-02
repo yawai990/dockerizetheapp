@@ -1,13 +1,13 @@
-import { Cardo, Averia_Libre } from 'next/font/google';
+import { Cardo, Arima } from 'next/font/google';
 
-// **** add project font
-
-export const titleFont = Cardo({
-  weight: '400',
+export const cardo = Cardo({
+  weight: ['400', '700'],
   subsets: ['latin'],
+  variable: '--font-cardo',
 });
 
-export const bodyFont = Averia_Libre({
-  weight: ['300', '400', '700'],
+export const arial = Arima({
+  weight: ['400', '500'],
   subsets: ['latin'],
+  variable: '--font-ariel',
 });

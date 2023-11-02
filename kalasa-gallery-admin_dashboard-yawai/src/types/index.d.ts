@@ -1,5 +1,4 @@
 interface ITableData {
-  No: number;
   artwork_name: string;
   artist_name: string;
   medium: string;
@@ -8,11 +7,25 @@ interface ITableData {
 }
 
 interface IArtistTable {
-  no: number;
   artist_name: string;
   added_date: string;
   total_artworks: number;
   sold_artworks: number;
+}
+interface IPageheaderSN {
+  link: string;
+  headerLabel: string;
+  btnLabel: string;
+  deleteLabel?: string;
+  icon?: any;
+  handleModalBox: () => void;
+}
+
+interface IContactTable {
+  customer_name: string;
+  subject: string;
+  email: string;
+  phone_number: string;
 }
 
 interface ICTAButton {

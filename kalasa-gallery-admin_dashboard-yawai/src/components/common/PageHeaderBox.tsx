@@ -1,36 +1,64 @@
-import React from 'react';
+import ImageIconCom from './ImageIconCom';
+import searchIcon from '@/assets/icons/search.svg';
+import calendarIcon from '@/assets/icons/calendar.svg';
+import { FormatDate } from '@/utils/FormatDate';
+import { FormEvent } from 'react';
 
-const PageHeaderBox = () => {
+interface IFilterDate {
+  startDate: string;
+  endDate: string;
+}
+interface IPageHeaderBox {
+  handleDatePicker: () => void;
+  handlerSearch: (e: FormEvent) => void;
+  searchText: any;
+  filterDate: IFilterDate | null;
+}
+
+const PageHeaderBox = ({
+  handlerSearch,
+  searchText,
+  filterDate,
+  handleDatePicker,
+}: IPageHeaderBox) => {
   return (
-    <>
-      <article className="w-[75%] flex gap-3 my-3 text-btnText">
-        <div className="border flex-1 rounded flex py-1 px-3">
-          <span>icon</span>
-          <input type="text" placeholder="Search By Name" />
-        </div>
+    <article className="w-full max-h-[60px] flex justify-between gap-3 my-3 text-btnText">
+      <button
+        onClick={handleDatePicker}
+        className="w-[30%] block border rounded center py-1 px-3"
+      >
+        <p className="flex-1 text-start text-grey">
+          {filterDate !== null
+            ? `${FormatDate(
+                filterDate.startDate,
+                'MMM do yyyy',
+              )} - ${FormatDate(filterDate.endDate, 'MMM do yyyy')}`
+            : 'From Date - To Date'}
+        </p>
+        <ImageIconCom src={calendarIcon} />
+      </button>
 
-        <div className="w-[15%] border rounded flex py-1 px-3">
-          <p>Sort By</p>
-          <span>i</span>
-        </div>
-
-        <div className="border rounded flex flex-1 py-1 px-3">
-          <p>Sep 16th 2022 - Sep 27th 2022</p>
-          <span>icon</span>
-        </div>
-      </article>
-      <div className="flex justify-between items-center text-primary py-2 text-btnText">
-        <div>
-          <input type="checkbox" />
-          <label htmlFor="" className="ml-2">
-            Quick Action
-          </label>
-        </div>
-        <div className="">
-          Sort By <span>icon</span>
-        </div>
-      </div>
-    </>
+      <form
+        onSubmit={handlerSearch}
+        className="border w-[30%] rounded overflow-hidden flex"
+      >
+        <button
+          type="submit"
+          onClick={handlerSearch}
+          className="w-[45px] pl-1 block center h-full"
+        >
+          <ImageIconCom src={searchIcon} />
+        </button>
+        <input
+          type="text"
+          id="search_input"
+          placeholder="Search By Name"
+          className="flex-1 outline-none px-2"
+          ref={searchText}
+          onChange={(e) => (searchText.current = e.target.value.toLowerCase())}
+        />
+      </form>
+    </article>
   );
 };
 

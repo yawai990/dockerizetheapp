@@ -1,11 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { getServerSession } from 'next-auth';
-import SessionProvider from '@/components/providers/SessionProvider';
+import { AuthProvider } from '@/components/providers/SessionProvider';
 import Provider from '@/components/providers/Provider';
-
-const inter = Inter({ subsets: ['latin'] });
+import { cardo, arial } from '@/fonts/font';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,14 +14,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const authSession = await getServerSession();
-
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <SessionProvider session={authSession}>
+      <body className={`${cardo.variable} ${arial.variable}`}>
+        <AuthProvider>
           <Provider>{children}</Provider>
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   );
